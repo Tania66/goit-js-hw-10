@@ -1,0 +1,27 @@
+body {
+    box-sizing: border-box;
+  }
+
+
+  .cat-img{
+margin-top: 20px;
+width: 800; 
+height: 600;
+  }
+
+
+.description{
+  font-size: 20px;
+  width: 770px;
+}
+
+
+  .temperament-span{
+    font-size: 23px;
+    font-weight: bold;
+   
+  }
+
+.temperament{
+  font-size: 20px;
+}
