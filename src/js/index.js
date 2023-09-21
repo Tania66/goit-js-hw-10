@@ -12,7 +12,9 @@ const refs = {
   catInfo: document.querySelector('.cat-info'),
 };
 
-refs.error.style.display = 'none'; 
+refs.error.classList.add('is-hidden');
+refs.loader.classList.add('is-hidden');
+
 
 Loading.dots('Loading...', {
   svgColor: '#26c710',
@@ -27,7 +29,7 @@ createSelect();
 function createSelect(data) {
   fetchBreeds(data)
     .then(data => {
-        refs.loader.style.display = 'none';  
+        refs.loader.classList.add('is-hidden');  
 
       createMarkupOptins(data);
 
@@ -37,6 +39,7 @@ function createSelect(data) {
     })
     .catch(error => {
         Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!');
+        refs.select.classList.add('is-hidden');
 
     })
     .finally(result => Loading.remove());
@@ -67,6 +70,7 @@ refs.select.addEventListener('change', event => {
     })
     .catch(error => {
         Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!');
+        refs.select.classList.add('is-hidden');
     })
     .finally(result => Loading.remove());
 });
@@ -82,6 +86,7 @@ function createMarkupCards(data) {
         <p class="temperament"><span class="temperament-span">Temperament:</span> ${breeds[0].temperament}</p>
       </div>`;
   refs.catInfo.innerHTML = card;
+
 }
 
 
